@@ -1,6 +1,7 @@
 package com.dendickys.aplikasimoviecatalogueuiux.ui.movies;
 
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 
@@ -13,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.dendickys.aplikasimoviecatalogueuiux.R;
 import com.dendickys.aplikasimoviecatalogueuiux.adapter.MoviesAdapter;
 import com.dendickys.aplikasimoviecatalogueuiux.model.Movies;
@@ -32,7 +32,6 @@ public class MoviesFragment extends Fragment {
     public MoviesFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -54,8 +54,10 @@
     <string name="_genre">Genre</string>
     <string name="_overview">Overview</string>
     <string name="poster_movies">poster_movies</string>
-
     <string name="poster_tv_show">Poster Tv Show</string>
+    <string name="release_date">Release date:</string>
+    <string name="genres">Genres:</string>
+    <string name="overview">Overview</string>
 
     <string-array name="data_name_movies">
         <item>A Star Is Born</item>

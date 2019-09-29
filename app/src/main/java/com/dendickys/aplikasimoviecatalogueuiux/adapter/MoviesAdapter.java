@@ -1,8 +1,10 @@
 package com.dendickys.aplikasimoviecatalogueuiux.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.dendickys.aplikasimoviecatalogueuiux.DetailMoviesActivity;
 import com.dendickys.aplikasimoviecatalogueuiux.R;
 import com.dendickys.aplikasimoviecatalogueuiux.model.Movies;
 
@@ -19,11 +22,6 @@ import java.util.ArrayList;
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder> {
 
     private ArrayList<Movies> listMovies;
-    private OnItemClickCallback onItemClickCallback;
-
-    public MoviesAdapter(OnItemClickCallback onItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback;
-    }
 
     public MoviesAdapter(ArrayList<Movies> listMovies) {
         this.listMovies = listMovies;
@@ -37,7 +35,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MoviesViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MoviesViewHolder holder, int position) {
         Movies movies = listMovies.get(position);
 
         Glide.with(holder.itemView.getContext())
@@ -59,7 +57,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesView
         private ImageView posterMovies;
         private TextView nameMovies, yearMovies, genreMovies, overviewMovies;
 
-        MoviesViewHolder(@NonNull View itemView) {
+        MoviesViewHolder(@NonNull final View itemView) {
             super(itemView);
 
             posterMovies = itemView.findViewById(R.id.img_poster_movies);
@@ -67,10 +65,16 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesView
             yearMovies = itemView.findViewById(R.id.tv_year_movies);
             genreMovies = itemView.findViewById(R.id.tv_genre_movies);
             overviewMovies = itemView.findViewById(R.id.tv_overview_movies);
-        }
-    }
 
-    public interface OnItemClickCallback {
-        void onItemClicked(Movies data);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    Intent intent = new Intent(itemView.getContext(), DetailMoviesActivity.class);
+                    intent.putExtra(DetailMoviesActivity.EXTRA_MOVIE, listMovies.get(position));
+                    itemView.getContext().startActivity(intent);
+                }
+            });
+        }
     }
 }

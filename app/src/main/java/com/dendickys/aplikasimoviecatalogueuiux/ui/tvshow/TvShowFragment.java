@@ -1,6 +1,7 @@
 package com.dendickys.aplikasimoviecatalogueuiux.ui.tvshow;
 
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 
@@ -13,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
+import com.dendickys.aplikasimoviecatalogueuiux.DetailTvShowActivity;
 import com.dendickys.aplikasimoviecatalogueuiux.R;
 import com.dendickys.aplikasimoviecatalogueuiux.adapter.TvShowAdapter;
 import com.dendickys.aplikasimoviecatalogueuiux.model.TvShow;
@@ -32,7 +35,6 @@ public class TvShowFragment extends Fragment {
     public TvShowFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

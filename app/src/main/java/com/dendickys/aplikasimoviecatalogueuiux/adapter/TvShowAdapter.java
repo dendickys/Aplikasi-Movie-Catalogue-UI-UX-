@@ -1,8 +1,10 @@
 package com.dendickys.aplikasimoviecatalogueuiux.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.dendickys.aplikasimoviecatalogueuiux.DetailTvShowActivity;
 import com.dendickys.aplikasimoviecatalogueuiux.R;
+import com.dendickys.aplikasimoviecatalogueuiux.model.Movies;
 import com.dendickys.aplikasimoviecatalogueuiux.model.TvShow;
 
 import java.util.ArrayList;
@@ -19,11 +23,6 @@ import java.util.ArrayList;
 public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder> {
 
     private ArrayList<TvShow> listTvShow;
-    private OnItemClickCallback onItemClickCallback;
-
-    public TvShowAdapter(OnItemClickCallback onItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback;
-    }
 
     public TvShowAdapter(ArrayList<TvShow> listTvShow) {
         this.listTvShow = listTvShow;
@@ -37,7 +36,7 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.TvShowView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TvShowViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final TvShowViewHolder holder, int position) {
         TvShow movies = listTvShow.get(position);
 
         Glide.with(holder.itemView.getContext())
@@ -59,7 +58,7 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.TvShowView
         private ImageView posterTvShow;
         private TextView nameTvShow, yearTvShow, genreTvShow, overviewTvShow;
 
-        TvShowViewHolder(@NonNull View itemView) {
+        TvShowViewHolder(@NonNull final View itemView) {
             super(itemView);
 
             posterTvShow = itemView.findViewById(R.id.img_poster_tvshow);
@@ -67,10 +66,16 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.TvShowView
             yearTvShow = itemView.findViewById(R.id.tv_year_tvshow);
             genreTvShow = itemView.findViewById(R.id.tv_genre_tvshow);
             overviewTvShow = itemView.findViewById(R.id.tv_overview_tvshow);
-        }
-    }
 
-    public interface OnItemClickCallback {
-        void onItemClicked(TvShow data);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    Intent intent = new Intent(itemView.getContext(), DetailTvShowActivity.class);
+                    intent.putExtra(DetailTvShowActivity.EXTRA_TVSHOW, listTvShow.get(position));
+                    itemView.getContext().startActivity(intent);
+                }
+            });
+        }
     }
 }
