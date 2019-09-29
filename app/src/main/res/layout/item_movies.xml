@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/img_poster_movies"
@@ -24,7 +24,7 @@
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_toEndOf="@id/img_poster_movies"
         android:textColor="@color/colorTextPrimary"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         tools:text="@string/movie_name" />
 
@@ -38,7 +38,7 @@
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_toEndOf="@id/img_poster_movies"
         android:textColor="@color/colorTextPrimary"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         tools:text="@string/_year" />
 
@@ -53,10 +53,10 @@
         android:layout_toEndOf="@id/img_poster_movies"
         android:textColor="@color/colorTextSecondary"
         android:textSize="12sp"
-        tools:text="@string/_genre"/>
+        tools:text="@string/_genre" />
 
     <TextView
-        android:id="@+id/tv_description_movies"
+        android:id="@+id/tv_overview_movies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_genre_movies"
@@ -68,5 +68,13 @@
         android:maxLines="3"
         android:textColor="@color/colorTextSecondary"
         android:textSize="12sp"
-        tools:text="@string/_overview"/>
+        tools:text="@string/_overview" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_below="@id/img_poster_movies"
+        android:layout_marginTop="2dp"
+        android:background="@color/colorDivider" />
+
 </RelativeLayout>
