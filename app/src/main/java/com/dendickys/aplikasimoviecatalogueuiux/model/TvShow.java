@@ -67,7 +67,7 @@ public class TvShow implements Parcelable {
     public TvShow() {
     }
 
-    protected TvShow(Parcel in) {
+    private TvShow(Parcel in) {
         this.poster = in.readInt();
         this.name = in.readString();
         this.year = in.readString();

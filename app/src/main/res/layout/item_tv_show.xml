@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/img_poster_tvshow"
@@ -23,7 +23,7 @@
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_toEndOf="@id/img_poster_tvshow"
         android:textColor="@color/colorTextPrimary"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         tools:text="@string/tvshow_name" />
 
@@ -37,7 +37,7 @@
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_toEndOf="@id/img_poster_tvshow"
         android:textColor="@color/colorTextPrimary"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         tools:text="@string/_year" />
 
@@ -68,5 +68,12 @@
         android:textColor="@color/colorTextSecondary"
         android:textSize="12sp"
         tools:text="@string/_overview" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_below="@id/img_poster_tvshow"
+        android:layout_marginTop="2dp"
+        android:background="@color/colorDivider" />
 
 </RelativeLayout>

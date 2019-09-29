@@ -67,7 +67,7 @@ public class Movies implements Parcelable {
     public Movies() {
     }
 
-    protected Movies(Parcel in) {
+    private Movies(Parcel in) {
         this.poster = in.readInt();
         this.name = in.readString();
         this.year = in.readString();
