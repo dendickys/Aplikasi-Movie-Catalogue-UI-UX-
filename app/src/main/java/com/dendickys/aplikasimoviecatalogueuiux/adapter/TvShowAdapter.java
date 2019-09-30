@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,7 +14,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.dendickys.aplikasimoviecatalogueuiux.DetailTvShowActivity;
 import com.dendickys.aplikasimoviecatalogueuiux.R;
-import com.dendickys.aplikasimoviecatalogueuiux.model.Movies;
 import com.dendickys.aplikasimoviecatalogueuiux.model.TvShow;
 
 import java.util.ArrayList;
